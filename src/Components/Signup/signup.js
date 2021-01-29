@@ -21,11 +21,13 @@ import Tags from "../../MaterialUi/tags/tags.js";
 // Mat ui
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
+import Checkbox from "@material-ui/core/Checkbox";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 // Styling
 import "./signup.css";
@@ -55,6 +57,7 @@ export default function Signup({ signup, setSignup }) {
   const [complete, setComplete] = useState(false);
   const [skills, setSkills] = useState([]);
   const [skillInput, setSkillInput] = useState("");
+  const [emailSub, setEmailSub] = useState(true);
 
   function getFirstName() {
     if (authUser) {
@@ -143,10 +146,23 @@ export default function Signup({ signup, setSignup }) {
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
-      .then((data) => console.log("this is the user data: ", data))
+      .then((data) => {
+        console.log("this is the user data: ", data);
+        sendEmailPref(data.rows[0].id);
+      })
       .catch((error) => console.log("user creation error error: ", error));
 
     setComplete(true);
+  }
+
+  function sendEmailPref(userId) {
+    fetch(`${url}/emails`, {
+      method: "POST",
+      body: JSON.stringify({ sub: emailSub, uid: userId }),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log("this is the user data: ", data));
   }
 
   if (loading) {
@@ -442,6 +458,36 @@ export default function Signup({ signup, setSignup }) {
                     as={<TextField id="other" label="Other" fullWidth />}
                     control={control}
                   />
+                </FormControl>
+              </Grid>
+              <Grid item xs={12}>
+                <FormControl variant="outlined">
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={emailSub}
+                        onChange={() => setEmailSub(!emailSub)}
+                        inputProps={{ "aria-label": "primary checkbox" }}
+                      />
+                    }
+                    label={`Receive event email notifications so you don't miss anything SoC related! ${
+                      emailSub ? "😄" : "😭 "
+                    }`}
+                  />
+                  <p
+                    style={{
+                      margin: 0,
+                      padding: 0,
+                      fontSize: "0.75rem",
+                      color: "rgba(0,0,0,0.5)",
+                    }}
+                  >
+                    You'll only receive emails when an event is created, changed
+                    or cancelled, so that you can stay in touch with all of us
+                    here at the School of Code. We might also send a checkup
+                    email from time-to-time just to see how you're getting on.
+                    Don't worry you can change your preference later.
+                  </p>
                 </FormControl>
               </Grid>
             </Grid>

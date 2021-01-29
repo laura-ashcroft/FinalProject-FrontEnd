@@ -15,6 +15,7 @@ import UserLeftSide from "../../Components/userLeftSide/userLeftSide.js";
 
 //Context
 import { useUserContext } from "../../Context/userContext";
+import { useEventsContext } from "../../Context/eventsContext";
 
 //styling
 import style from "./homepage.module.css";
@@ -24,7 +25,7 @@ import { Link } from "react-router-dom";
 
 export default function Homepage() {
   const [user, setUser] = useUserContext();
-  const [allEvents, setAllEvents] = useState(null);
+  const [allEvents, setAllEvents] = useEventsContext();
 
   const [date, setDate] = useState("");
 

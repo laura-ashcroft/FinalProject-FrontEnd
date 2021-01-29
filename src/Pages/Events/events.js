@@ -21,16 +21,19 @@ import style from "./events.module.css";
 
 // User Context
 import { useUserContext } from "../../Context/userContext";
+import { useEventsContext } from "../../Context/eventsContext";
 
 function GetAllEvents() {
   // Importing user data
   const [user] = useUserContext();
 
-  const [allEvents, setAllEvents] = useState([]);
+  const [allEvents, setAllEvents] = useEventsContext();
   const [attendingList, setAttendingList] = useState([]);
   const [filterValue, setFilterValue] = useState("");
 
   const { id } = useParams();
+
+  console.log(`this is all events ${allEvents}`);
 
   function getEventType(event) {
     let eventTypeArr = event.map((event) => event.eventtype);
@@ -58,7 +61,7 @@ function GetAllEvents() {
   async function get() {
     let res = await fetch(`${url}/events`);
     let data = await res.json();
-
+    console.log("get");
     setAllEvents(data.payload);
     if (id) {
       filter(id);
@@ -67,13 +70,14 @@ function GetAllEvents() {
   }
 
   useEffect(() => {
-    get();
-  }, []);
+    allEvents && get();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allEvents]);
 
   useEffect(() => {
     setInterval(() => {
       get();
-    }, 300000);
+    }, 10000000);
   }, []);
 
   // Filter
@@ -100,6 +104,12 @@ function GetAllEvents() {
       setHideEducation("");
     }
   }
+
+  // if (id && allEvents) {
+  //   filter(id);
+  //   setFilterValue(id);
+  // }
+
   return (
     <div>
       {user && (
@@ -177,7 +187,7 @@ function GetAllEvents() {
                   <h3>Education</h3>
                   <div>
                     <Grid container spacing={3}>
-                      {allEvents.map((item, index) => {
+                      {allEvents.map((item) => {
                         if (item.eventtype === "education") {
                           let date = new Date(item.date).toDateString();
                           return (
@@ -203,7 +213,7 @@ function GetAllEvents() {
                   <h3>Social</h3>
 
                   <Grid container spacing={3}>
-                    {allEvents.map((item, index) => {
+                    {allEvents.map((item) => {
                       if (item.eventtype === "social") {
                         let date = new Date(item.date).toDateString();
                         return (
