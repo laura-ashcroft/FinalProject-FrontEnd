@@ -155,7 +155,7 @@ export default function Homepage() {
                 </section>
 
                 <section className={style.weekEvents}>
-                  <h3 style={{ fontSize: "1.2rem" }}>Event This Week</h3>
+                  <h3 style={{ fontSize: "1.2rem" }}>Events This Week</h3>
 
                   {allEvents &&
                     allEvents.map((item, index) => {
