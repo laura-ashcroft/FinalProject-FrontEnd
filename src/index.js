@@ -4,6 +4,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { AuthProvider } from "./Context/authContext";
 import { UserProvider } from "./Context/userContext";
+import { EventsProvider } from "./Context/eventsContext";
 import App from "./App/App";
 import { ThemeProvider } from "@material-ui/core/styles";
 import materialTheme from "./MaterialUi/Theme/theme";
@@ -15,7 +16,9 @@ ReactDOM.render(
     <ThemeProvider theme={theme}>
       <AuthProvider>
         <UserProvider>
-          <App />
+          <EventsProvider>
+            <App />
+          </EventsProvider>
         </UserProvider>
       </AuthProvider>
     </ThemeProvider>

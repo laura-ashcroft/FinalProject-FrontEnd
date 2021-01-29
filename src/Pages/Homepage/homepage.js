@@ -15,6 +15,7 @@ import UserLeftSide from "../../Components/userLeftSide/userLeftSide.js";
 
 //Context
 import { useUserContext } from "../../Context/userContext";
+import { useEventsContext } from "../../Context/eventsContext";
 
 //styling
 import style from "./homepage.module.css";
@@ -24,7 +25,7 @@ import { Link } from "react-router-dom";
 
 export default function Homepage() {
   const [user, setUser] = useUserContext();
-  const [allEvents, setAllEvents] = useState(null);
+  const [allEvents, setAllEvents] = useEventsContext();
 
   const [date, setDate] = useState("");
 
@@ -116,7 +117,7 @@ export default function Homepage() {
                 <section>
                   <div className={style.eventSec}>
                     <div className={style.eventSecSpan}>
-                      <Link to="/events">
+                      <Link to="/events/education">
                         <img
                           className={style.eventImage}
                           src={undrawEdu}
@@ -127,7 +128,7 @@ export default function Homepage() {
                     </div>
 
                     <span className={style.eventSecSpan}>
-                      <Link to="/events">
+                      <Link to="/events/community">
                         <h4>Community</h4>
                         <div className={style.img}>
                           <img
@@ -140,7 +141,7 @@ export default function Homepage() {
                     </span>
 
                     <span className={style.eventSecSpan}>
-                      <Link to="/events">
+                      <Link to="/events/social">
                         <h4>Social</h4>
                         <div className={style.img}>
                           <img
@@ -155,7 +156,7 @@ export default function Homepage() {
                 </section>
 
                 <section className={style.weekEvents}>
-                  <h3 style={{ fontSize: "1.2rem" }}>Event This Week</h3>
+                  <h3 style={{ fontSize: "1.2rem" }}>Events This Week</h3>
 
                   {allEvents &&
                     allEvents.map((item, index) => {

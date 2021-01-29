@@ -22,12 +22,13 @@ import Tags from "../../MaterialUi/tags/tags";
 
 // Mat ui
 import Grid from "@material-ui/core/Grid";
-
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import TextField from "@material-ui/core/TextField";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import InputLabel from "@material-ui/core/InputLabel";
+import Checkbox from "@material-ui/core/Checkbox";
 
 export default function EditProfile({ setEdit, visible }) {
   // Context
@@ -40,10 +41,12 @@ export default function EditProfile({ setEdit, visible }) {
   // State
   const [skills, setSkills] = useState([]);
   const [skillInput, setSkillInput] = useState("");
+  const [emailSub, setEmailSub] = useState(null);
 
   useEffect(() => {
     if (user) {
       setSkills(user.skills);
+      setEmailSub(user.emailPref);
     }
   }, [user]);
 
@@ -133,10 +136,21 @@ export default function EditProfile({ setEdit, visible }) {
       .then((res) => res.json())
       .then((data) => console.log("this is the user data: ", data))
       .then(() => {
+        sendEmailPref();
         setEdit(false);
         setUser(null);
       })
       .catch((error) => console.log("user creation error error: ", error));
+  }
+
+  function sendEmailPref() {
+    fetch(`${url}/emails/${user.uid}`, {
+      method: "PATCH",
+      body: JSON.stringify({ sub: emailSub }),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log("this is the user data: ", data));
   }
 
   if (loading) {
@@ -370,6 +384,37 @@ export default function EditProfile({ setEdit, visible }) {
                 control={control}
                 defaultValue={findSocial("other")}
               />
+            </FormControl>
+          </Grid>
+
+          <Grid item xs={12}>
+            <FormControl variant="outlined">
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={emailSub}
+                    onChange={() => setEmailSub(!emailSub)}
+                    inputProps={{ "aria-label": "primary checkbox" }}
+                  />
+                }
+                label={`Receive event email notifications so you don't miss anything SoC related! ${
+                  emailSub ? "😄" : "😭 "
+                }`}
+              />
+              <p
+                style={{
+                  margin: 0,
+                  padding: 0,
+                  fontSize: "0.75rem",
+                  color: "rgba(0,0,0,0.5)",
+                  marginBottom: "1.5rem",
+                }}
+              >
+                You'll only receive emails when an event is created, changed or
+                cancelled, so that you can stay in touch with all of us here at
+                the School of Code. We might also send a checkup email from
+                time-to-time just to see how you're getting on.
+              </p>
             </FormControl>
           </Grid>
         </Grid>
