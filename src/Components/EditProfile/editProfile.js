@@ -407,13 +407,13 @@ export default function EditProfile({ setEdit, visible }) {
                   padding: 0,
                   fontSize: "0.75rem",
                   color: "rgba(0,0,0,0.5)",
+                  marginBottom: "1.5rem",
                 }}
               >
                 You'll only receive emails when an event is created, changed or
                 cancelled, so that you can stay in touch with all of us here at
                 the School of Code. We might also send a checkup email from
-                time-to-time just to see how you're getting on. Don't worry you
-                can change your preference later.
+                time-to-time just to see how you're getting on.
               </p>
             </FormControl>
           </Grid>
