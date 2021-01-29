@@ -19,6 +19,7 @@ export default function createUserObj(
     social: userData.social,
     introduction: userData.introduction,
     journey: userJourney,
+    emailPref: userData.sub,
   };
 
   return newUser;
