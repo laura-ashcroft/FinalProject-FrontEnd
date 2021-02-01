@@ -16,6 +16,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import HowToRegIcon from "@material-ui/icons/HowToReg";
 import CommentIcon from "@material-ui/icons/Comment";
+import Skeleton from "@material-ui/lab/Skeleton";
 
 //Config
 import { url } from "../../config";
@@ -109,6 +110,10 @@ export default function EventCard({
 
   /*--------User context--------*/
   const [user] = useUserContext();
+
+  /*--------Loading State--------*/
+  const [loading, setLoading] = useState(true);
+  console.log({ loading });
 
   /*--------Maps marker state--------*/
   const [marker, setMarker] = useState(JSON.parse(location));
@@ -317,6 +322,15 @@ export default function EventCard({
         </div>
 
         <div className="cardContainer">
+          {loading && (
+            <Skeleton
+              animation="wave"
+              variant="rect"
+              className={classes.media}
+              // style={{ visibility: loading ? "visible" : "hidden" }}
+            />
+          )}
+
           <Image
             key={key}
             cloudName="falcons"
@@ -324,6 +338,8 @@ export default function EventCard({
             width="1500"
             crop="scale"
             className="img"
+            onLoad={() => setLoading(false)}
+            style={{ opacity: loading ? 0 : 1 }}
           />
         </div>
         <CardContent>

@@ -5,6 +5,7 @@ import { url } from "../../config";
 
 // Components
 import UserImage from "../../Components/userImage/userImage";
+import LoadingSkeleton from "./jobUpdatesSkeleton";
 
 // Luxon (Date/Time Module)
 import { DateTime } from "luxon";
@@ -30,6 +31,15 @@ export default function JobUpdates() {
     }, 1800000);
     // fetches job updates every 30 minutes
   }, []);
+
+  if (!jobUpdates) {
+    return (
+      <div className={style.jobSec}>
+        <h4 className={style.secTitle}>Job Updates</h4>
+        <LoadingSkeleton repeatValue={20} />
+      </div>
+    );
+  }
 
   return (
     <div className={style.jobSec}>

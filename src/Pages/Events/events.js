@@ -36,14 +36,16 @@ function GetAllEvents() {
   console.log(`this is all events ${allEvents}`);
 
   function getEventType(event) {
-    let eventTypeArr = event.map((event) => event.eventtype);
+    if (event) {
+      let eventTypeArr = event.map((event) => event.eventtype);
 
-    return eventTypeArr.reduce((acc, curr) => {
-      if (acc.find((value) => value === curr)) {
-        return acc;
-      }
-      return [...acc, curr];
-    }, []);
+      return eventTypeArr.reduce((acc, curr) => {
+        if (acc.find((value) => value === curr)) {
+          return acc;
+        }
+        return [...acc, curr];
+      }, []);
+    }
   }
 
   /*---------------Add to Attend Patch----------------*/
@@ -70,7 +72,10 @@ function GetAllEvents() {
   }
 
   useEffect(() => {
-    allEvents && get();
+    // allEvents && get();
+    if (allEvents === null) {
+      get();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allEvents]);
 
@@ -112,7 +117,7 @@ function GetAllEvents() {
 
   return (
     <div>
-      {user && (
+      {user && allEvents && (
         <div className={style.row}>
           <UserLeftSide />
           <div className="container marginTop">
@@ -174,12 +179,13 @@ function GetAllEvents() {
                     }}
                   >
                     <MenuItem value={"all"}>All</MenuItem>
-                    {getEventType(allEvents).map((event) => {
-                      const eventTitle = `${event
-                        .charAt(0)
-                        .toUpperCase()}${event.slice(1)}`;
-                      return <MenuItem value={event}>{eventTitle}</MenuItem>;
-                    })}
+                    {allEvents &&
+                      getEventType(allEvents).map((event) => {
+                        const eventTitle = `${event
+                          .charAt(0)
+                          .toUpperCase()}${event.slice(1)}`;
+                        return <MenuItem value={event}>{eventTitle}</MenuItem>;
+                      })}
                   </Select>
                 </div>
 
