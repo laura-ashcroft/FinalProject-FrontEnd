@@ -6,8 +6,7 @@
 
 _December 2020 - January 2021 - 4 week project_
 
-<table>
-<td><img src="./src/Images/landingpage.png" alt="SoCietly Landing Page"/></td></table>
+<img src="./src/Images/landingpage.png" alt="SoCietly Landing Page"/>
 
 ### The project brief
 
@@ -26,9 +25,7 @@ After conducting user research, we found that School of Code staff wanted to inc
 
 Worked within an agile team of 5 people to build a full-stack application for the School of Code in 4 weeks. The platform aims to strengthen the community after the course through event organisation, while allowing coaches to gauge the wider impact of the course. We utilised tools such as Jira to plan and work in short sprints, as well as Balsamiq and Adobe XD, to build wireframe and hi- fidelity designs. I focused primarily on front-end implementation using React, as well as the front-end design and user experience. We implemented external modules including Nodemailer to integrate event reminders and updates, and the Google Maps API for event locations.
 
-<table>
-<td><img src="./src/Images/homepage.png" alt="SoCietly Homepage"/></td>
-</table>
+<img src="./src/Images/homepage.png" alt="SoCietly Homepage"/>
 
 Tech stack:
 HTML5, CSS3, JavaScript, React, Node.js, PostgreSQL, Heroku DB, Netlify, Firebase, Google Maps, Cloudinary, Luxon, Material UI, Cypress, Figma, Jira. Hosted using Heroku and Netlify.
@@ -37,13 +34,10 @@ HTML5, CSS3, JavaScript, React, Node.js, PostgreSQL, Heroku DB, Netlify, Firebas
 
 ### Profile Page
 
-<table>
-<td><img src="./src/Images/profile.png" alt="SoCietly Profile"/></td>
-<td><img src="./src/Images/editprofile.png" alt="SoCietly Edit Profile"/></td>
-</table>
+<img src="./src/Images/profile.png" alt="SoCietly Profile"/>
+<img src="./src/Images/editprofile.png" alt="SoCietly Edit Profile"/>
 
 ### User Log In
 
-<table>
-<td><img src="./src/Images/firebase.png" alt="SoCietly Sign In With Firebase"/></td>
+<img src="./src/Images/firebase.png" alt="SoCietly Sign In With Firebase"/>
 </table>
