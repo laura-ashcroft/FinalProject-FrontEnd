@@ -1,71 +1,49 @@
-# Getting Started with Create React App
+# SoCietly
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Community app for School of Code alumni
 
-## Available Scripts
+### Keeping all bootcampers connected after the School of Code
 
-In the project directory, you can run:
+_December 2020 - January 2021 - 4 week project_
 
-### `npm start`
+<table>
+<td><img src="./src/Images/landingpage.png" alt="SoCietly Landing Page"/></td></table>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### The project brief
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+_"How can we better keep track of ex-bootcampers after the course?"_
 
-### `npm test`
+We broke this down into a series of epics to monitor our progress as we worked on the problem. We wanted to focus two main sections:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Career - The first job an alumnus has and their career trajectory as they advance on this new path.
+- Contact - How School of Code staff can manage their contact with alumni, including creating events to grow the community.
 
-### `npm run build`
+### Our Solution
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+After conducting user research, we found that School of Code staff wanted to increase contact with alumni and keep track of bootcamper's career progression to better measure the impact of the School of Code. We found that most people weren't as in contact with other ex-bootcampers as they wanted to be, and were looking for ways to keep in touch or meet up with other bootcampers and coaches.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Project Details
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Worked within an agile team of 5 people to build a full-stack application for the School of Code in 4 weeks. The platform aims to strengthen the community after the course through event organisation, while allowing coaches to gauge the wider impact of the course. We utilised tools such as Jira to plan and work in short sprints, as well as Balsamiq and Adobe XD, to build wireframe and hi- fidelity designs. I focused primarily on front-end implementation using React, as well as the front-end design and user experience. We implemented external modules including Nodemailer to integrate event reminders and updates, and the Google Maps API for event locations.
 
-### `npm run eject`
+<table>
+<td><img src="./src/Images/homepage.png" alt="SoCietly Homepage"/></td>
+</table>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Tech stack:
+HTML5, CSS3, JavaScript, React, Node.js, PostgreSQL, Heroku DB, Netlify, Firebase, Google Maps, Cloudinary, Luxon, Material UI, Cypress, Figma, Jira. Hosted using Heroku and Netlify.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## See our [Demo Day presentation](https://www.youtube.com/watch?v=9gjLqZn24ZY) for more information about the project and how it was built.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Profile Page
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<table>
+<td><img src="./src/Images/profile.png" alt="SoCietly Profile"/></td>
+<td><img src="./src/Images/editprofile.png" alt="SoCietly Edit Profile"/></td>
+</table>
 
-## Learn More
+### User Log In
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# front-end-final-project-the-falcon-5ive
+<table>
+<td><img src="./src/Images/firebase.png" alt="SoCietly Sign In With Firebase"/></td>
+</table>
